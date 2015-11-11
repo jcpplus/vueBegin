@@ -1,0 +1,11 @@
+{
+  "name": "vue入门",
+  "version": "1.0.0",
+  "description": "vue入门",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jesse",
+  "license": "ISC"
+}
