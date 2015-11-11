@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Vue Demo - 方法处理器</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<body>
+    <style>
+    [v-modal] {
+        display: none;
+    }
+    </style>
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>方法处理器</h1>
+            <div id="example">
+                <!-- id在父级，我要给子级button绑定样式，如何通过父级id来绑定子级的样式？ -->
+                <button v-on:click="greet" class="btn btn-primary" v-bind:class="">Greet</button>
+            </div>
+            <h1>内联语句处理器</h1>
+            <div id="example-2">
+                <button v-on:click="say('hi', $event)">Say Hi</button>
+                <button v-on:click="say('what', $event)">Say What</button>
+            </div>
+            <h1>事件修饰符</h1>
+            <pre>
+                <!-- 阻止单击事件冒泡 -->
+<a v-on:click.stop="doThis"></a>
+
+<!-- 提交事件不再重载页面 -->
+<form v-on:submit.prevent="onSubmit"></form>
+
+<!-- 修饰符可以串联 -->
+<a v-on:click.stop.prevent="doThat"></a>
+
+<!-- 只有修饰符 -->
+<form v-on:submit.prevent></form>
+            </pre>
+            <h1>按键修饰符</h1>
+            <input type="text" v-on:keyup.13="submit">
+            <br>
+            <input type="text" v-on:keyup.enter="submit">
+            <br>
+            <input type="text" @keyup.enter="submit">
+            <header>全部按键的别名</header>
+            <ul id="keys">
+                <li v-for="key in keyList">{{key.keyName}}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script src="./onEvent.js"></script>
+
+</html>

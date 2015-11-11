@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Vue Demo - 列表渲染</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<body>
+    <style>
+    [v-modal] {
+        display: none;
+    }
+    </style>
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>v-for</h1>
+            <div class="well well-sm" id="example">
+                <ul id="">
+                    <li v-for="item in items">
+                        {{parentMessage}} {{$index}} {{ item.message }}
+                    </li>
+                    <template v-for="item in items">
+                        <li>{{ item.message }}</li>
+                        <li class="hr"></li>
+                    </template>
+                </ul>
+            </div>
+            <h1>对象v-for</h1>
+            <ul id="repeat-object" class="demo list-unstyled">
+                <li v-for="value in object">
+                    {{ $key }} : {{ value }}
+                </li>
+            </ul>
+            <h1>值域 v-for</h1>
+            <div id="vvv">
+                <span v-for="n in 10">{{ n }} </span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
+<script src="./vfor.js"></script>
+
+</html>
